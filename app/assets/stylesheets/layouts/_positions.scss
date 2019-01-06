@@ -306,11 +306,11 @@
   }
 
   #range_switch {
-    top: 13px; right: $order-book-width + $gutter-2x + 25;
+    top: 13px; right: $block-order-width + $block-market-width + $block-margin + 20;
     li { padding-left: 10px; padding-right: 0; }
   }
   #indicator_switch_wrapper {
-    top: 33px; right: $order-book-width + $gutter-2x + 25;
+    top: 33px; right: $block-order-width + $block-market-width + $block-margin + 20;
     li { padding-left: 10px; padding-right: 0; }
   }
 
