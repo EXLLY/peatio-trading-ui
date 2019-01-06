@@ -1,50 +1,55 @@
 <div id="order_book" class="panel panel-default">
-  <div class="panel-body panel-body-head">
-    <div id="order_book_header" class="row">
-      <div class="col-xs-12 col-left">
-        <table class="table">
+  <div class="panel-body panel-body-content">
+    <div id="order_book_body">
+        <table class="table table-hover bids">
           <thead>
             <tr>
-              <th class="amount text-right col-xs-10">
+              <th class="price text-right col-xs-7">
+                <%= t('.bid') %>
+              </th>
+              <th class="amount text-right col-xs-7">
                 <%= t('.amount') %>
               </th>
               <th class="volume text-right col-xs-7">
                 <%= t('.volume') %>
               </th>
-              <th class="price text-right col-xs-7">
-                <%= t('.bid') %>
-              </th>
             </tr>
           </thead>
+          <tbody></tbody>
         </table>
-      </div>
-      <div class="col-xs-12">
-        <table class="table table-head">
+        <div id="ticker" class="row">
+            <div class="bid col-xs-7 pull-left">
+              <div class="hint">
+                <%= t('.bid') %>
+              </div>
+              <div class="price"></div>
+            </div>
+            <div class="last col-xs-7">
+              <div class="price"></div>
+            </div>
+            <div class="ask col-xs-7 pull-right">
+              <div class="hint">
+                <%= t('.ask') %>
+              </div>
+              <div class="price"></div>
+            </div>
+        </div>
+        <table class="table table-hover asks">
           <thead>
             <tr>
               <th class="price text-right col-xs-7">
                 <%= t('.ask') %>
               </th>
+              <th class="amount text-right col-xs-7">
+                <%= t('.amount') %>
+              </th>
               <th class="volume text-right col-xs-7">
                 <%= t('.volume') %>
               </th>
-              <th class="amount text-right col-xs-10">
-                <%= t('.amount') %>
-              </th>
             </tr>
           </thead>
+          <tbody></tbody>
         </table>
-      </div>
-    </div>
-  </div>
-  <div class="panel-body panel-body-content">
-    <div id="order_book_body" class="row">
-      <div class="col-xs-12 col-left">
-        <table class="table table-hover bids"></table>
-      </div>
-      <div class="col-xs-12">
-        <table class="table table-hover asks"></table>
-      </div>
     </div>
   </div>
 </div>

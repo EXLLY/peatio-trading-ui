@@ -1,6 +1,6 @@
 /* basic style extend
 ------------------------------------------------------- */
-g { color: $gray-light; }
+/* g { color: $gray-light; } */
 
 * + i[class^=fa], i[class^=fa] + * { margin-left: $icon-gutter-width; }
 
@@ -9,8 +9,8 @@ span.caret, b.caret { margin-left: $icon-gutter-width; }
 strong + span, span.label + span.label { margin-left: $text-gutter-width; }
 abbr { border-bottom: 0px !important; }
 
-.text-up { color: $up-text !important; }
-.text-down { color: $down-text !important; }
+.text-up, .text-up g { color: $up-text-color !important; opacity: 1 !important;}
+.text-down, .text-down g { color: $down-text-color !important; opacity: 1 !important;}
 
 .btn-up { @include button-variant($btn-default-color, $up-bg, $btn-default-border); }
 .btn-down { @include button-variant($btn-default-color, $down-bg, $btn-default-border); }

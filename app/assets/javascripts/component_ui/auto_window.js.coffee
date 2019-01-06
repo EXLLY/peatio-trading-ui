@@ -17,6 +17,7 @@ BORDER_WIDTH = 1
     panel_table_header_high = PANEL_TABLE_HEADER_HIGH
 
     @$node.resize ->
+      return
       navbar_h       = $('.navbar').height() + BORDER_WIDTH
       markets_h      = $('#market_list').height() + BORDER_WIDTH
       entry_h        = $('#ask_entry').height() + 2*BORDER_WIDTH

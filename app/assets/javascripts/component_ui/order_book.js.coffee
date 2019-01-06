@@ -1,8 +1,8 @@
 @OrderBookUI = flight.component ->
   @attributes
     bookLimit: 30
-    askBookSel: 'table.asks'
-    bidBookSel: 'table.bids'
+    askBookSel: 'table.asks>tbody'
+    bidBookSel: 'table.bids>tbody'
     seperatorSelector: 'table.seperator'
     fade_toggle_depth: '#fade_toggle_depth'
 
