@@ -43,7 +43,7 @@ $ ->
 
   FloatUI.attachTo('.float')
   KeyBindUI.attachTo(document)
-  AutoWindowUI.attachTo(window)
+  #= AutoWindowUI.attachTo(window)
 
   PlaceOrderUI.attachTo('#bid_entry')
   PlaceOrderUI.attachTo('#ask_entry')
