@@ -331,10 +331,6 @@
       td { color: #eee; }
     }
   }
-  
-  #market_list_wrapper{
-    display: none;
-  }
 
   #market_trades_wrapper {
     position: absolute;
@@ -399,19 +395,49 @@
   }
 
   #market_list_wrapper {
+    position: absolute;
+    width:280px;
+    z-index:999;
+    display: none;
     .dropdown-wrapper {
       position: absolute;
       height: 100px;
-      top: $gutter; left: $market-list-width + $gutter;
+      top: $gutter; left: 279px;
       z-index: 998;
+      .dropdown-menu{
+        a{
+          i{
+            color:#000;
+          }
+        }
+      }
+    }
+  }
+  #market_list_wrapper:hover{
+    .dropdown-wrapper {
+      .dropdown-menu {
+        display: block;
+        margin-left: 0;
+        -webkit-transition: margin-left .1s linear;
+        transition: margin-left .1s linear;
+
+        a { 
+          display: block;
+          background-color:#000;
+          color:#FFF;
+        }
+        a.active{
+          i{
+            color:#ccc;
+            text-shadow: white 0 0 2px;
+          }
+        }
+      }
     }
   }
 
   #market_list {
-    position: absolute;
-    top: $gutter; left: $gutter;
-    width: $market-list-width; height: $market-list-height;
-    z-index: 999;
+    width: $market-list-width; min-height: $market-list-height;
 
     .panel-body-content {
       height: $market-list-height - $panel_table_header_high;
