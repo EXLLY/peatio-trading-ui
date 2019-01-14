@@ -1,13 +1,14 @@
-<div id="order_book" class="panel panel-default">
-  <div class="panel-body panel-body-content">
-    <div id="order_book_body">
-        <table class="table table-hover bids">
+<div id="order_book">
+  <div class="order_book_asks">
+    <div class="panel panel-default">
+      <div class="panel-body panel-body-head">
+        <table class="table">
           <thead>
             <tr>
-              <th class="price text-right col-xs-7">
-                <%= t('.bid') %>
+              <th class="price col-xs-7">
+                <%= t('.ask') %>
               </th>
-              <th class="amount text-right col-xs-7">
+              <th class="amount text-center col-xs-7">
                 <%= t('.amount') %>
               </th>
               <th class="volume text-right col-xs-7">
@@ -15,32 +16,44 @@
               </th>
             </tr>
           </thead>
-          <tbody></tbody>
         </table>
-        <div id="ticker" class="row">
-            <div class="bid col-xs-7 pull-left">
-              <div class="hint">
-                <%= t('.bid') %>
-              </div>
-              <div class="price"></div>
-            </div>
-            <div class="last col-xs-7">
-              <div class="price"></div>
-            </div>
-            <div class="ask col-xs-7 pull-right">
-              <div class="hint">
-                <%= t('.ask') %>
-              </div>
-              <div class="price"></div>
-            </div>
-        </div>
+      </div>
+      <div class="panel-body panel-body-content">
         <table class="table table-hover asks">
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div id="ticker" class="row">
+      <div class="bid col-xs-7 pull-left">
+        <div class="hint">
+          <%= t('.bid') %>
+        </div>
+        <div class="price text-up"></div>
+      </div>
+      <div class="last col-xs-10 text-center">
+        <div class="price"></div>
+      </div>
+      <div class="ask col-xs-7 pull-right">
+        <div class="hint">
+          <%= t('.ask') %>
+        </div>
+        <div class="price text-down"></div>
+      </div>
+  </div>
+
+  <div class="order_book_bids">
+    <div class="panel panel-default">
+      <div class="panel-body panel-body-head">
+        <table class="table">
           <thead>
             <tr>
-              <th class="price text-right col-xs-7">
-                <%= t('.ask') %>
+              <th class="price col-xs-7">
+                <%= t('.bid') %>
               </th>
-              <th class="amount text-right col-xs-7">
+              <th class="amount text-center col-xs-7">
                 <%= t('.amount') %>
               </th>
               <th class="volume text-right col-xs-7">
@@ -48,8 +61,13 @@
               </th>
             </tr>
           </thead>
+        </table>
+      </div>
+      <div class="panel-body panel-body-content">
+        <table class="table table-hover bids">
           <tbody></tbody>
         </table>
+      </div>
     </div>
   </div>
 </div>

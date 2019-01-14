@@ -65,3 +65,6 @@ $ ->
   $('.panel-body-content').niceScroll
     autohidemode: true
     cursorborder: "none"
+  # window.setTimeout =>
+  #   $('.order_book_asks .panel-body-content').getNiceScroll(0).doScrollTop(90000, 10)
+  # , 1000

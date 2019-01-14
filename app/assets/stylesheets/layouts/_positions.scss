@@ -247,6 +247,7 @@
   }
 
   #order_book {
+    position: absolute;
     top: $block-margin; 
     right: $block-margin + $block-market-width;
     bottom: $block-bottom-height;
@@ -254,6 +255,69 @@
     background-color: $block-bg;
     font-size: 12px;
     border-radius: 0;
+
+    #ticker{
+      position: absolute;
+      left:2px;
+      right:2px;
+      top:50%;
+      margin-top:-27px;
+      .last{
+        .price{
+          font-size:16px;
+        }
+      }
+    }
+    .panel{
+      .panel-body-content {
+        position: absolute;
+        top:34px;
+        left:0;
+        right:0;
+        bottom:0;
+      }
+    }
+    .order_book_asks{
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:50%;
+      .panel{
+        left:0;
+        right:0;
+        top:0;
+        bottom:30px;
+        .asks{
+          position: absolute;
+          width:auto;
+          left:8px;
+          right:8px;
+          bottom:8px;
+        }
+      }
+    }
+    .order_book_bids{
+      position: absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      height:50%;
+      .panel{
+        top:30px;
+        bottom:0;
+        left:0;
+        right:0;
+        .bids{
+          position: absolute;
+          width:auto;
+          left:8px;
+          right:8px;
+          top:8px;
+        }
+      }
+    }
+
     #order_book_header table th{
       padding: 0 2px 0 0;
     }
@@ -417,6 +481,7 @@
     .dropdown-wrapper {
       .dropdown-menu {
         display: block;
+        top:-2px;
         margin-left: 0;
         -webkit-transition: margin-left .1s linear;
         transition: margin-left .1s linear;
@@ -481,11 +546,11 @@
     top:0;
     background-color: $block-bg;
     .panel-body-content {
-      height: $my-orders-height - $gutter-2x;
+      height: $block-bottom-height - $block-margin * 2;
 
       .time, .price, .volume, .amount {
         color: $main-gray;
-        & > span { display: block; height: 16px; padding: 2px 0; }
+        & > span { display: block; height: 16px; padding: 2px 0; white-space: nowrap}
       }
 
       .empty-row {
