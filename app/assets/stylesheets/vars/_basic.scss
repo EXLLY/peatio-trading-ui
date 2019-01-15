@@ -17,3 +17,21 @@ $icon-gutter-width: 5px;
 
 $up-bg: rgba(89, 132, 50, 1.0);
 $down-bg: rgba(159, 49, 27, 1.0);
+
+$up-text-color:rgb(1, 170, 120);
+$down-text-color:rgb(255, 95, 115);
+$num-text-color:rgba(255, 255, 255, 0.9);
+
+$block-bg:rgba(37, 43, 56, 1.0);
+$ticker-bg:rgba(48, 54, 66, 1.0);
+$block-margin:8px;
+$block-bottom-height:240px;
+$block-order-width:320px;
+$block-market-width:280px;
+$block-right-width:$block-order-width + $block-market-width;
+$block-depths-width:25%;
+
+$bid-btn-color:rgb(60, 208, 164);
+$bid-btn-hover:rgb(1, 170, 120);
+$ask-btn-color:rgb(255, 89, 95);
+$ask-btn-hover:rgb(255, 95, 115);

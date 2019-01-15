@@ -43,7 +43,7 @@ $ ->
 
   FloatUI.attachTo('.float')
   KeyBindUI.attachTo(document)
-  AutoWindowUI.attachTo(window)
+  #= AutoWindowUI.attachTo(window)
 
   PlaceOrderUI.attachTo('#bid_entry')
   PlaceOrderUI.attachTo('#ask_entry')
@@ -65,3 +65,6 @@ $ ->
   $('.panel-body-content').niceScroll
     autohidemode: true
     cursorborder: "none"
+  # window.setTimeout =>
+  #   $('.order_book_asks .panel-body-content').getNiceScroll(0).doScrollTop(90000, 10)
+  # , 1000

@@ -57,3 +57,25 @@ window.MarketSwitchUI = flight.component ->
       else
         $el.text($el.data('show-text'))
         @.hide_accounts.addClass('hide')
+    
+    isShow = false
+    @.$node.hover (e) => 
+      isShow = true
+      @.$node.show()
+    , (e) =>
+      isShow = false
+      setTimeout => 
+        if !isShow
+          @.$node.hide()
+      , 100
+    
+    $('#menu>.navbar-brand').hover (e) => 
+      isShow = true
+      @.$node.show()
+    , (e) => 
+      isShow = false
+      setTimeout => 
+        if !isShow
+          @.$node.hide()
+      , 100
+    
