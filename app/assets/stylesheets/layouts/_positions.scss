@@ -28,7 +28,7 @@
     min-height: $order-book-height;
     top: $gutter; left: $gutter;
     font-size: 12px;
-    
+
     .panel-body-content {
       min-height: $order-book-height - $panel_table_header_high;
     }
@@ -209,32 +209,14 @@
 
   /* layout position
   ----------------------------------------------- */
-  #ask_entry {
-    right: $block-margin;
-    bottom: $block-margin;
-    width: $block-right-width / 2;
-    height: $block-bottom-height - $block-margin * 2;
-    background-color: $block-bg;
-    border-left:none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  #bid_entry {
-    right: $block-margin + $block-right-width / 2;
-    bottom: $block-margin;
-    width: $block-right-width / 2;
-    height: $block-bottom-height - $block-margin * 2;
-    background-color: $block-bg;
-    border-right:none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
+  #ask_entry, #bid_entry { width: $entry-width; height: $entry-height; }
   .entry-right { bottom: $gutter; right: $gutter + $entry-width + $gutter; }
   .entry-left { bottom: $gutter; right: $gutter; }
 
   #ticker {
-    padding:10px 0;
-    background-color:$ticker-bg;
+    width: $ticker-width; height: $ticker-height;
+    bottom: $gutter_4x + $entry-height + $my-orders-height + $depths-height; right: $gutter;
+
     .ask, .last, .bid {
       text-align: center;
       font-family: $font-family-monospace;
@@ -242,81 +224,17 @@
     }
 
     .last {
-      padding-top:15px;
+      padding-top: 5px;
+      font-size: 25px;
+      line-height: 34px;
     }
   }
 
   #order_book {
-    position: absolute;
-    top: $block-margin; 
-    right: $block-margin + $block-market-width;
-    bottom: $block-bottom-height;
-    width:$block-order-width;
-    background-color: $block-bg;
+    width: $order-book-width; height: $order-book-height;
+    min-height: $order-book-height;
+    top: $gutter; right: $gutter;
     font-size: 12px;
-    border-radius: 0;
-
-    #ticker{
-      position: absolute;
-      left:2px;
-      right:2px;
-      top:50%;
-      margin-top:-27px;
-      .last{
-        .price{
-          font-size:16px;
-        }
-      }
-    }
-    .panel{
-      .panel-body-content {
-        position: absolute;
-        top:34px;
-        left:0;
-        right:0;
-        bottom:0;
-      }
-    }
-    .order_book_asks{
-      position: absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:50%;
-      .panel{
-        left:0;
-        right:0;
-        top:0;
-        bottom:30px;
-        .asks{
-          position: absolute;
-          width:auto;
-          left:8px;
-          right:8px;
-          bottom:8px;
-        }
-      }
-    }
-    .order_book_bids{
-      position: absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      height:50%;
-      .panel{
-        top:30px;
-        bottom:0;
-        left:0;
-        right:0;
-        .bids{
-          position: absolute;
-          width:auto;
-          left:8px;
-          right:8px;
-          top:8px;
-        }
-      }
-    }
 
     #order_book_header table th{
       padding: 0 2px 0 0;
@@ -337,11 +255,7 @@
         .price, .amount, .volume, g { color: #444; }
       }
 
-      .price, .amount, .volume { 
-        color: $num-text-color; 
-        padding: 0 2px 0 0;
-        g{ opacity: 0.4; }
-      }
+      .price, .amount, .volume { color: $main-gray; padding: 0 2px 0 0;}
 
       tr {
         &.text-up, &.text-down {
@@ -354,11 +268,9 @@
 
   #candlestick {
     position: absolute;
-    top: $block-margin; 
-    left: $block-margin;
-    right: $block-right-width + 2 * $block-margin;
-    bottom: $block-bottom-height;
-    background-color: $block-bg;
+    min-width: $candlestick-width; width: $candlestick-width;
+    min-height: $candlestick-height; height: $candlestick-height;
+    top: $gutter; left: $market-list-width + $gutter-2x;
   }
 
   .switch {
@@ -370,20 +282,17 @@
   }
 
   #range_switch {
-    top: 13px; right: $block-order-width + $block-market-width + $block-margin + 20;
+    top: 13px; right: $order-book-width + $gutter-2x + 25;
     li { padding-left: 10px; padding-right: 0; }
   }
   #indicator_switch_wrapper {
-    top: 33px; right: $block-order-width + $block-market-width + $block-margin + 20;
+    top: 33px; right: $order-book-width + $gutter-2x + 25;
     li { padding-left: 10px; padding-right: 0; }
   }
 
   #depths_wrapper {
-    left: $block-margin;
-    bottom: $block-margin;
-    width: $block-depths-width;
-    height: $block-bottom-height - 2 * $block-margin;
-    background-color: $block-bg;
+    width: $order-book-width; height: $depths-height;
+    bottom: $gutter-3x + $my-orders-height + $entry-height; right: $gutter;
 
     .panel-body {
       padding: 0;
@@ -397,32 +306,21 @@
   }
 
   #market_trades_wrapper {
-    position: absolute;
-    top: $block-margin; 
-    right: $block-margin; 
-    width:$block-market-width;
-    bottom: $block-bottom-height;
-    border-style:solid;
-    border-width:1px 1px 1px 0;
-    border-color:#333;
-    background-color: $block-bg;
     .dropdown-wrapper {
       position: absolute;
       height: 100px;
-      top: 0; 
-      left:-70px;
+      top: $market-list-height + $gutter-3x; left: $market-trades-width + $gutter;
       z-index: 998;
-    }
-    table {
-      thead{
-        th{
-          color:$num-text-color;
-        }
-      }
     }
   }
 
   #market_trades {
+    position: absolute;
+    bottom: $gutter; left: $gutter;
+    width: $market-trades-width;
+    height: $market-trades-height;
+    min-height: $market-trades-height;
+    z-index: 999;
     font-size: 12px;
 
     .panel {
@@ -431,11 +329,6 @@
       min-height: $market-trades-height;
     }
     .panel-body-content {
-      position: absolute;
-      top:34px;
-      left:0;
-      right:0;
-      bottom:0;
       min-height: $market-trades-height - $panel_table_header_high;
     }
 
@@ -448,10 +341,7 @@
 
     .all-trades tr td.my i { display: none; }
     .all-trades tr.mine td.my i { display: inline; }
-    .all-trades, .my-trades tr td { 
-      color: $num-text-color;
-      g{ opacity: 0.4; }
-    }
+    .all-trades, .my-trades tr td { color: $main-gray; }
 
     .my-trades tbody {
       display: none;
@@ -459,50 +349,19 @@
   }
 
   #market_list_wrapper {
-    position: absolute;
-    width:280px;
-    z-index:999;
-    display: none;
     .dropdown-wrapper {
       position: absolute;
       height: 100px;
-      top: $gutter; left: 279px;
+      top: $gutter; left: $market-list-width + $gutter;
       z-index: 998;
-      .dropdown-menu{
-        a{
-          i{
-            color:#000;
-          }
-        }
-      }
-    }
-  }
-  #market_list_wrapper:hover{
-    .dropdown-wrapper {
-      .dropdown-menu {
-        display: block;
-        top:-2px;
-        margin-left: 0;
-        -webkit-transition: margin-left .1s linear;
-        transition: margin-left .1s linear;
-
-        a { 
-          display: block;
-          background-color:#000;
-          color:#FFF;
-        }
-        a.active{
-          i{
-            color:#ccc;
-            text-shadow: white 0 0 2px;
-          }
-        }
-      }
     }
   }
 
   #market_list {
-    width: $market-list-width; min-height: $market-list-height;
+    position: absolute;
+    top: $gutter; left: $gutter;
+    width: $market-list-width; height: $market-list-height;
+    z-index: 999;
 
     .panel-body-content {
       height: $market-list-height - $panel_table_header_high;
@@ -525,32 +384,23 @@
   }
 
   #my_orders_wrapper {
-    position: absolute;
-    left:$block-depths-width;
-    right:$block-right-width + 2 * $block-margin;
-    bottom:$block-margin;
-    height: $block-bottom-height - 2 * $block-margin;
     .dropdown-wrapper {
       position: absolute;
       height: $my-orders-height;
-      top:0;
-      left:-104px;
-      z-index:99;
+      bottom: $gutter-2x + $entry-height; right: $order-book-width + $gutter;
     }
   }
 
   #my_orders {
-    left:$block-margin * 2;
-    right:0;
-    bottom:0;
-    top:0;
-    background-color: $block-bg;
+    width: $my-orders-width; height: $my-orders-height;
+    bottom: $gutter-2x + $entry-height; right: $gutter;
+
     .panel-body-content {
-      height: $block-bottom-height - $block-margin * 2;
+      height: $my-orders-height - $gutter-2x;
 
       .time, .price, .volume, .amount {
         color: $main-gray;
-        & > span { display: block; height: 16px; padding: 2px 0; white-space: nowrap}
+        & > span { display: block; height: 16px; padding: 2px 0; }
       }
 
       .empty-row {

@@ -1,8 +1,8 @@
 @OrderBookUI = flight.component ->
   @attributes
     bookLimit: 30
-    askBookSel: 'table.asks>tbody'
-    bidBookSel: 'table.bids>tbody'
+    askBookSel: 'table.asks'
+    bidBookSel: 'table.bids'
     seperatorSelector: 'table.seperator'
     fade_toggle_depth: '#fade_toggle_depth'
 
@@ -45,7 +45,7 @@
         v1 = new BigNumber($row.data('volume'))
         p2 = new BigNumber(order[0])
         v2 = new BigNumber(order[1])
-        if (bid_or_ask == 'ask' && p2.greaterThan(p1)) || (bid_or_ask == 'bid' && p2.greaterThan(p1))
+        if (bid_or_ask == 'ask' && p2.lessThan(p1)) || (bid_or_ask == 'bid' && p2.greaterThan(p1))
           @insertRow(book, $row, template,
             price: order[0], volume: order[1], index: j)
           j += 1
@@ -78,8 +78,6 @@
 
   @updateOrders = (table, orders, bid_or_ask) ->
     book = @select("#{bid_or_ask}BookSel")
-    if bid_or_ask == 'ask'
-      orders.sort(@sortDesc)
 
     @mergeUpdate bid_or_ask, book, orders, JST["templates/order_book_#{bid_or_ask}"]
 
@@ -87,9 +85,6 @@
     setTimeout =>
       @clearMarkers(@select("#{bid_or_ask}BookSel"))
     , 900
-
-  @sortDesc = (a, b) ->
-    return parseFloat(b[0]) - parseFloat(a[0])
 
   @computeDeep = (event, orders) ->
     index      = Number $(event.currentTarget).data('order')

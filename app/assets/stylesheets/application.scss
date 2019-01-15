@@ -19,14 +19,12 @@
 
 /* basic layout
 ------------------------------------------------ */
-html,
-body{
-  height: 100%;
-}
+
 html,
 body,
 #wrap,
 .content {
+  height: 100%;
   @include user-select(none);
 }
 
@@ -214,7 +212,6 @@ header {
 
 .navbar-static-top {
   min-width: $min-width;
-  background-color:$block-bg;
 }
 .navbar-default .navbar-brand {
   color: $main-gray;
@@ -231,7 +228,7 @@ header {
 
 #wrap {
   box-sizing: border-box;
-  // margin-top: 0px - $navbar-height;
+  margin-top: 0px - $navbar-height;
 }
 
 .container-fluid {
@@ -241,13 +238,10 @@ header {
 
 .content {
   top: $navbar-height;
-  right:0;
-  bottom:0;
-  left:0;
   min-width: $min-width;
   min-height: $min-height - $navbar-height;
-  // width: 100%;
-  // height: 100%;
+  width: 100%;
+  height: 100%;
   position: absolute;
   font-size: 14px !important;
   background-color: $content-bg;
@@ -428,7 +422,7 @@ header {
   }
 }
 
-#market_trades_wrapper {
+.has-right-dropdown {
   .dropdown-wrapper {
     .dropdown-menu {
       display: none;
@@ -443,7 +437,9 @@ header {
       font-size: 11px;
       background-color: $panel-bg;
       border: 1px solid $panel-default-border;
-      border-right: 0;
+      border-left: 0;
+      border-left-right-radius: 0;
+      border-left-right-radius: 0;
 
       a {
         padding: 3px 8px;
@@ -472,12 +468,12 @@ header {
     }
   }
 }
-/* has-right-dropdown */
-#market_trades_wrapper:hover {
+
+.has-right-dropdown:hover {
   .dropdown-wrapper {
     .dropdown-menu {
       display: block;
-      margin-left: 0;
+      margin-left: -1px;
       -webkit-transition: margin-left .1s linear;
       transition: margin-left .1s linear;
 
@@ -485,6 +481,7 @@ header {
     }
   }
 }
+
 
 /* order entry
 -----------------------------------------------------*/
@@ -515,26 +512,6 @@ header {
     }
   }
 }
-#bid_entry{
-  .btn{
-    background-color: $bid-btn-color;
-    border-color: $bid-btn-color;
-  }
-  .btn:hover{
-    background-color: $bid-btn-hover;
-    border-color: $bid-btn-hover;
-  }
-}
-#ask_entry{
-  .btn{
-    background-color: $ask-btn-color;
-    border-color: $ask-btn-color;
-  }
-  .btn:hover{
-    background-color: $ask-btn-hover;
-    border-color: $ask-btn-hover;
-  }
-}
 
 #ask_entry, #bid_entry {
   z-index: 999;
@@ -546,18 +523,25 @@ header {
     outline-offset: -2px;
   }
 
+  .btn {
+    background-color: $second-color;
+    border-color: $second-color;
+  }
+
+  .btn:hover{
+    background-color: $main-bg;
+    border-color: $second-bg;
+  }
+
   .row { margin-bottom: 6px; }
 
   .input-group {
     .input-group-addon {
       padding: 1px 4px 0px 4px;
       border-color: $border-color;
-      background-color:transparent;
     }
     .form-control {
-      border-width:1px 0;
       border-color: $border-color;
-      background-color:transparent;
       color: $text-color;
     }
 
@@ -565,7 +549,7 @@ header {
       padding: 3px 6px 0px 6px;
       min-width: 70px;
       text-align: right;
-      color: $num-text-color;
+      color: $main-gray;
     }
 
     span.input-group-addon {
@@ -584,7 +568,6 @@ header {
     }
 
     margin-bottom: 8px;
-    background-color:rgba(0,0,0,0.3);
   }
 
   .hint-price-disadvantage, .hint-positions  {
@@ -644,10 +627,6 @@ header {
       }
     }
   }
-}
-#order_book table.bids .price,
-#order_book table.asks .price {
-  text-align:left;
 }
 
 table {

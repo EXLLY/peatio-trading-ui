@@ -16,6 +16,7 @@
     <%= render partial: 'indicator_switch' %>
     <%= render partial: 'order_book' %>
     <%= render partial: 'depths' %>
+    <%= render partial: 'ticker' %>
     <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
     <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
     <%= render partial: 'my_orders' %>
